@@ -450,11 +450,6 @@ class Cabinet115bel {
 
         preg_match('/p_dialog_cs=(.*?)\\\u0027/', $content, $match);
         $this->p_dialog_cs = $match[1] ?? null;
-
-
-//        echo '<pre>';
-//        echo "p_dialog_cs : {$this->p_dialog_cs}\n";
-//        echo '</pre>';exit;
     }
 
 
@@ -895,15 +890,6 @@ class Cabinet115bel {
 
         preg_match('/ajaxIdentifier":"(.*?)","attribute01":"#P3_USERNAME,#P3_PASSWORD,#P3_REMEMBER/', $content, $match);
         $this->plugin2 = $match[1] ?? null;
-
-
-//        echo '<pre>';
-//        echo "protected6 : {$this->protected6}\n";
-//        echo "salt7 : {$this->salt7}\n";
-//        echo "pageSubmissionId : {$this->pageSubmissionId}\n";
-//        echo "plugin8 : {$this->plugin8}\n";
-//        echo "plugin2 : {$this->plugin2}\n";
-//        echo '</pre>';exit;
     }
 
 
@@ -1048,42 +1034,6 @@ class Cabinet115bel {
             ];
 
 
-
-//            $stack = \GuzzleHttp\HandlerStack::create();
-//            $stack->push(\GuzzleHttp\Middleware::mapRequest(function (\Psr\Http\Message\RequestInterface $request) {
-//                $method  = $request->getMethod();
-//                $uri     = $request->getUri();
-//                $headers = $request->getHeaders();
-//                $body    = $request->getBody()->getContents();
-//
-//                $headers_text = [];
-//                foreach ($headers as $name => $value) {
-//                    $headers_text[] = "{$name}: " . implode(';', $value);
-//                }
-//                $headers_text = implode("\n", $headers_text);
-//                $date         = date('Y-m-d H:i:s');
-//
-//                $this->log("[{$date}]\n{$method} {$uri}\n{$headers_text}\n\n{$body}\n");
-//
-//                return $request;
-//            }));
-
-//            $stack->push(\GuzzleHttp\Middleware::mapResponse(function (\Psr\Http\Message\ResponseInterface $response) {
-//                $code    = $response->getStatusCode();
-//                $headers = $response->getHeaders();
-//                $body    = $response->getBody()->getContents();
-//
-//                $headers_text = [];
-//                foreach ($headers as $name => $value) {
-//                    $headers_text[] = "{$name}: " . implode(';', $value);
-//                }
-//                $headers_text = implode("\n", $headers_text);
-//
-//                $this->log("\n---RESPONSE CODE {$code} ---\n{$headers_text}\n\n{$body}\n");
-//
-//                return $response;
-//            }));
-
             $this->client = new \GuzzleHttp\Client([
                 'base_uri'           => $this->base_url,
                 'timeout'            => 10,
@@ -1094,7 +1044,6 @@ class Cabinet115bel {
                 'curl'               => [
                     CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1' // На сервере в 115 слабый ключ шифрования
                 ],
-//                'handler' => $stack,
             ]);
         }
 
@@ -1109,19 +1058,5 @@ class Cabinet115bel {
         }
 
         return $response;
-    }
-
-
-    /**
-     * @param string $text
-     * @return void
-     */
-    private function log(string $text) {
-
-        $filename = __DIR__ . '/../../../../../../../logs/app.log';
-
-        $f = fopen($filename, 'a');
-        fwrite($f, "{$text}\n");
-        fclose($f);
     }
 }
