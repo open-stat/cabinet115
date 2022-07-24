@@ -1,0 +1,24 @@
+{
+  "name": "opendataworld/cabinet115",
+  "type": "library",
+  "description": "Неофициальное API 115.бел",
+  "keywords": [
+    "api", "115", "115.бел"
+  ],
+  "homepage": "https://github.com/opendataworld/cabinet115",
+  "license": "MIT",
+  "authors": [],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.4.0",
+    "guzzlehttp/guzzle": "7.4.*",
+    "ext-iconv" : "*",
+    "ext-mbstring" : "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "HomeInvoice\\": "src/"
+    }
+  }
+}
