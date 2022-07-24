@@ -1,6 +1,12 @@
 <?php
 namespace OpenDataWorld;
 
+/**
+ * Список api методов 115 (OpenApi)
+ * @see https://disp.it-minsk.by/app/eds/open-api-catalog/
+ * @see https://disp.it-minsk.by/app/eds/open-api-catalog/portal/request/
+ */
+
 
 /**
  *
